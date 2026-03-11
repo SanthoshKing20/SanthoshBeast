@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>EMI Calculator</title>
+
+<style>
+body{
+font-family:Arial;
+background:#f4f4f4;
+text-align:center;
+}
+
+.container{
+background:white;
+padding:20px;
+width:300px;
+margin:auto;
+border-radius:10px;
+}
+
+input,button{
+width:90%;
+padding:8px;
+margin:8px;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>EMI Calculator</h2>
+
+<input type="number" id="loan" placeholder="Loan Amount">
+
+<input type="number" id="rate" placeholder="Interest Rate">
+
+<input type="number" id="time" placeholder="Months">
+
+<button onclick="calculateEMI()">Calculate EMI</button>
+
+<h3 id="result"></h3>
+
+</div>
+
+<script>
+
+function calculateEMI(){
+
+let p=document.getElementById("loan").value;
+let r=document.getElementById("rate").value/1200;
+let n=document.getElementById("time").value;
+
+let emi=(p*r*Math.pow(1+r,n))/(Math.pow(1+r,n)-1);
+
+document.getElementById("result").innerHTML="EMI : ₹"+emi.toFixed(2);
+
+}
+
+</script>
+
+</body>
+</html>
